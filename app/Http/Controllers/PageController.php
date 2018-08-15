@@ -15,9 +15,18 @@ class PageController extends Controller
         
     	return view('theme::index');//,['keysucc'=>$keysucc,'khoahoc'=>$khoahoc,'dichvu'=>$dichvu]);
     }
-    public function about(){
-        $gioithieu = Gioithieu::where('featured',1)->firstorFail();
-      
-    	return view('theme::about',['gioithieu'=>$gioithieu]);
-    }         
+    public function about() {
+ 
+            $post1 = Gioithieu::where('featured',1)->firstorFail();
+            $posts = Gioithieu::where('featured',0)->get();
+ 
+     	return view('theme::about',['post1'=>$post1,'posts'=>$posts]);
+    }
+    public function showAbout($slug)
+    {
+
+        $post1 = Gioithieu::findBySlug($slug);
+        $posts = Gioithieu::findNotBySlug($slug);        
+        return view('theme::about',['post1'=>$post1,'posts'=>$posts]);
+    }              
 }

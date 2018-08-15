@@ -16,6 +16,7 @@
 // });
 Route::get('/', 'PageController@index')->name('home');
 Route::get('gioi-thieu', 'PageController@about')->name('about');
+Route::get('gioi-thieu/{slug}', 'PageController@showAbout')->name('aboutPost');
 // Route::get('lien-he', 'PageController@contact')->name('contact');
 // Route::get('dich-vu-an-toan-thong-tin', 'PageController@service')->name('service');
 

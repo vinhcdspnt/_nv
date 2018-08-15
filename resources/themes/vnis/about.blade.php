@@ -11,15 +11,10 @@
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="hero-nav-area">
-								<h1 class="text-white">VỀ CHÚNG TÔI</h1>
-								<p class="text-white link-nav"><a href="index.html">Trang chủ </a>  <span class="lnr lnr-arrow-right"></span><a href="#">Giới thiệu </a></p>
+								<h1 class="text-white">{{setting('about.title')}}</h1>
+								<p class="text-white link-nav"><a href="/">Trang chủ </a>  <span class="lnr lnr-arrow-right"></span><a href="#">Giới thiệu </a></p>
 							</div>
 						</div>
-						{{--  <div class="col-lg-12">
-							<div class="news-tracker-wrap">
-								<h6><span>Breaking News:</span>   <a href="#">Astronomy Binoculars A Great Alternative</a></h6>
-							</div>
-						</div>  --}}
 					</div>
 				</div>
 			</section>
@@ -36,7 +31,7 @@
 										<li><a href="#">Giới thiệu</a></li>
 									</ul>
 									<a href="#">
-										<h3>{{ $gioithieu->title }}</h3>
+										<h3>{{ $post1->title }}</h3>
 									</a>
 									<ul class="meta pb-20">
 										<li><a href="#"><span class="lnr lnr-user"></span>Administrator</a></li>
@@ -44,7 +39,7 @@
 
 									</ul>
 
-									{!! $gioithieu->body !!}									
+									{!! $post1->body !!}									
 									{{--  <p style="color:#222222">
 										Thành lập năm 2013, Công ty Cổ phần Công nghệ An toàn thông tin và Truyền Thông Việt Nam (VNIST., JSC) không ngừng phát triển lớn mạnh về quy mô và nhân sự, thực hiện mục tiêu trở thành tập đoàn công nghệ và an toàn thông tin hàng đầu tại Việt Nam. Lấy thế mạnh Công nghệ thông tin và An toàn thông  tin, VNIST đã và đang dần khẳng định vị thế của mình  trên cả bình diện trong nước và quốc tế.
 									</p>
@@ -70,9 +65,27 @@
 					</div>
                     <div class="col-lg-4">
                             <div class="sidebars-area">
-                                @include('theme::partials.related-post')
-                                {{--  @include('theme::partials.most-popular')
-                                @include('theme::partials.social-networks')  --}}
+					
+								<div class="single-sidebar-widget editors-pick-widget">
+										<h6 class="title">Các tin khác</h6>
+										<div class="editors-pick-post">
+											<div class="post-lists">
+												@foreach($posts as $post)	
+													<div class="single-post d-flex flex-row">
+														<div class="thumb">
+															<img src="@if(!isset($post->image)){{ setting('site.pathImageDefault') }}@else{{ Voyager::image( $post->image ) }}@endif" width="100px" height="80px" alt="">
+														</div>
+														<div class="detail">
+															<a href="/gioi-thieu/{{$post->slug}}"><h6> {{$post->title}} </h6></a>
+															<ul class="meta">
+																<li><a href="#"><span class="lnr lnr-calendar-full"></span>03 April, 2018</a></li>
+									
+															</ul>
+														</div>
+													</div>
+												@endforeach													
+											</div>
+									</div>
                             </div>
                         </div>
 				    </div>

@@ -56,5 +56,19 @@ class Gioithieu extends Model
         public function category()
         {
             return $this->belongsTo(Voyager::modelClass('Category'));
-        }    
+        }
+        public static  function findByFeature()
+        {
+            return static::where('featured',1)->firstorFail();
+        }
+        public static  function findBySlug($slug)
+        {
+            return static::where('slug',$slug)->firstorFail();
+            //where('status', '<>', 1)
+        }        
+        public static  function findNotBySlug($slug)
+        {
+            return static::where('slug','<>',$slug)->get();
+            //where('status', '<>', 1)
+        }                      
 }
