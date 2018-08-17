@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Gioithieu;
+use App\Post;
 
 class PageController extends Controller
 {
@@ -17,16 +17,33 @@ class PageController extends Controller
     }
     public function about() {
  
-            $post1 = Gioithieu::where('featured',1)->firstorFail();
-            $posts = Gioithieu::where('featured',0)->get();
- 
+            // Các tin trong trang about sẽ có category_id = 1
+            $post1 = Post::where([
+                                    ['featured', '=', '1'],
+                                    ['category_id', '=', '1'],
+                                ])->firstorFail();            
+            
+            $posts = Post::where([
+                                    ['featured', '<>', '1'],
+                                    ['category_id', '=', '1'],
+                                ])->get();
      	return view('theme::about',['post1'=>$post1,'posts'=>$posts]);
     }
     public function showAbout($slug)
     {
 
-        $post1 = Gioithieu::findBySlug($slug);
-        $posts = Gioithieu::findNotBySlug($slug);        
+            // $post1 = Gioithieu::findBySlug($slug);
+            // $posts = Gioithieu::findNotBySlug($slug);'slug',$slug
+            // Các tin trong trang about sẽ có category_id = 1            
+            $post1 = Post::where([
+                ['slug', '=', $slug],
+                ['category_id', '=', '1'],
+            ])->firstorFail();            
+
+            $posts = Post::where([
+                ['slug', '<>', $slug],
+                ['category_id', '=', '1'],
+            ])->get();                
         return view('theme::about',['post1'=>$post1,'posts'=>$posts]);
     }              
 }
