@@ -30,7 +30,7 @@
 									<ul class="tags">
 										<li><a href="#">Giới thiệu</a></li>
 									</ul>
-									<a href="#">
+									<a href="/gioi-thieu/{{$post1->slug}}">
 										<h3>{{ $post1->title }}</h3>
 									</a>
 									<ul class="meta pb-20">

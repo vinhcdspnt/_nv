@@ -9,9 +9,11 @@
             {{-- {{ $dataType->display_name_plural }} --}}
         </h1>
         @can('add',app($dataType->model_name))
-            <a href="{{ route('voyager.'.$dataType->slug.'.create') }}" class="btn btn-success btn-add-new">
+        {{-- Nguyen Vinh code --}}
+            <a href="@if($vinh_cate_id == 0){{ route('voyager.'.$dataType->slug.'.create')}}@else{{ route('voyager.'.$dataType->slug.'.create', ['cate_id' => $vinh_cate_id]) }}@endif" class="btn btn-success btn-add-new">
                 <i class="voyager-plus"></i> <span>{{ __('voyager::generic.add_new') }}</span>
             </a>
+        {{-- end code --}}            
         @endcan
         @can('delete',app($dataType->model_name))
             @include('voyager::partials.bulk-delete')
@@ -88,6 +90,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    {{-- Nguyen vinh code--}}
+                                @php
+                                    if ($vinh_cate_id != 0) $dataTypeContent = $dataTypeContent->where('category_id',$vinh_cate_id);
+                                @endphp
+                                {{-- end code--}}
                                     @foreach($dataTypeContent as $data)
                                     <tr>
                                         @can('delete',app($dataType->model_name))

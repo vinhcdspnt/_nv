@@ -22,4 +22,13 @@ Route::get('gioi-thieu/{slug}', 'PageController@showAbout')->name('aboutPost');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
+    
+    //khong duoc dung route trung ten posts
+    // Route::get('post/{cate_id}', [
+    //     'uses'  => 'Admin\AdminPostController@getListByCate',
+    //     'as'    => 'admin.posts.getListByCate'
+    // ])->middleware('admin.user');
+    // Route::get('bai-viet/{cate_id}', function(){
+    //     return view('test');
+    //   })->middleware('admin.user');        
 });

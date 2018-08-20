@@ -19,12 +19,12 @@ class PageController extends Controller
  
             // Các tin trong trang about sẽ có category_id = 1
             $post1 = Post::where([
-                                    ['featured', '=', '1'],
+                                    ['slug', '=', 'cong-ty-co-phan-cong-nghe-an-toan-thong-tin-vnist'],
                                     ['category_id', '=', '1'],
                                 ])->firstorFail();            
             
             $posts = Post::where([
-                                    ['featured', '<>', '1'],
+                                    ['id', '<>', $post1->id],
                                     ['category_id', '=', '1'],
                                 ])->get();
      	return view('theme::about',['post1'=>$post1,'posts'=>$posts]);
@@ -41,7 +41,7 @@ class PageController extends Controller
             ])->firstorFail();            
 
             $posts = Post::where([
-                ['slug', '<>', $slug],
+                ['id', '<>', $post1->id],
                 ['category_id', '=', '1'],
             ])->get();                
         return view('theme::about',['post1'=>$post1,'posts'=>$posts]);

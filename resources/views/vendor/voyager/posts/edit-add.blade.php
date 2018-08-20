@@ -100,7 +100,7 @@
                             <input type="text" class="form-control" id="title" name="title" placeholder="{{ __('voyager::generic.title') }}" value="@if(isset($dataTypeContent->title)){{ $dataTypeContent->title }}@endif">
                         </div>
                     </div>
-                    <!-- ### Category ### -->
+                    <!-- ### Category ### -->                  
                     <div class="panel" >
                             <div class="panel-heading">
                                     <h3 class="panel-title">
@@ -116,7 +116,7 @@
                                 <div class="panel-body">
                                         <select class="form-control" name="category_id">
                                                 @foreach(TCG\Voyager\Models\Category::all() as $category)
-                                                    <option value="{{ $category->id }}"@if(isset($dataTypeContent->category_id) && $dataTypeContent->category_id == $category->id) selected="selected"@endif>{{ $category->name }}</option>
+                                                    <option value="{{ $category->id }}" @if(isset($vinh_cate_id) && $vinh_cate_id == $category->id) selected="selected"@endif>{{ $category->name }}</option>
                                                 @endforeach
                                         </select>                                        
                                 </div>                    
