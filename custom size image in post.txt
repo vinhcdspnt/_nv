@@ -1,0 +1,54 @@
+custom size image in Post in laravel voyager
+
+{
+    "resize": {
+        "width": "1000",
+        "height": null
+    },
+    "quality" : "80%",
+    "upsize" : true,
+    "thumbnails": [
+        {
+            "name": "top0",
+            "crop": {
+                "width": "750",
+                "height": "439"
+            }
+        },
+        {
+            "name": "top12",
+            "crop": {
+                "width": "380",
+                "height": "220"
+            }
+        },
+        {
+            "name": "small",
+            "crop": {
+                "width": "100",
+                "height": "80"
+            }
+        },
+        {
+            "name": "medium",
+            "crop": {
+                "width": "263",
+                "height": "180"
+            }
+        },
+		        {
+            "name": "medium2",
+            "crop": {
+                "width": "335",
+                "height": "180"
+            }
+        },
+        {
+            "name": "content",
+            "crop": {
+                "width": "690",
+                "height": "300"
+            }
+        }
+    ]
+}

@@ -27,7 +27,7 @@
         <base href="{{asset('')}}">
 		<!-- Favicon-->
 		<link rel="shortcut icon" href="vnis/img/fav-icon.png" type="image/x-icon">        
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
 		<!--
 		CSS
 		============================================= -->

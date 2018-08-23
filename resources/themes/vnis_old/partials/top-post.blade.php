@@ -11,7 +11,7 @@
                         <li><a href="/{{$noibat[0]->category->slug}}">{{$noibat[0]->category->name}}</a></li>
                     </ul>
                     <a href="/{{$noibat[0]->category->slug}}/{{$noibat[0]->slug}}">
-                        <h3 class="tieu-de-top0">{{$noibat[0]->title}}</h3>
+                        <h3>{{$noibat[0]->title}}</h3>
                     </a>
                     <ul class="meta">
                         <li><a href="#"><span class="lnr lnr-user"></span>{{$noibat[0]->author->name}}</a></li>
@@ -31,7 +31,7 @@
                             <li><a href="/{{$noibat[1]->category->slug}}">{{$noibat[1]->category->name}}</a></li>
                         </ul>
                         <a href="/{{$noibat[1]->category->slug}}/{{$noibat[1]->slug}}">
-                            <h4 class="tieu-de-top12">{{$noibat[1]->title}}</h4>
+                            <h4>{{$noibat[1]->title}}</h4>
                         </a>
                         <ul class="meta">
                             <li><a href="#"><span class="lnr lnr-user"></span>{{$noibat[1]->author->name}}</a></li>
@@ -40,7 +40,6 @@
                         </ul>
                     </div>
                 </div>
-                
                 <div class="single-top-post mt-10">
                     <div class="feature-image-thumb relative">
                         {{-- <div class="overlay overlay-bg"></div> --}}
@@ -51,7 +50,7 @@
                             <li><a href="/{{$noibat[2]->category->slug}}">{{$noibat[2]->category->name}}</a></li>
                         </ul>
                         <a href="/{{$noibat[2]->category->slug}}/{{$noibat[2]->slug}}">
-                            <h4 class="tieu-de-top12">{{$noibat[2]->title}}</h4>
+                            <h4>{{$noibat[2]->title}}</h4>
                         </a>
                         <ul class="meta">
                             <li><a href="#"><span class="lnr lnr-user"></span>{{$noibat[2]->author->name}}</a></li>

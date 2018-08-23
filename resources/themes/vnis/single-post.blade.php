@@ -11,13 +11,8 @@
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="hero-nav-area">
-								<h1 class="text-white">Standard Post</h1>
-								<p class="text-white link-nav"><a href="index.html">Home </a>  <span class="lnr lnr-arrow-right"></span><a href="#">Post Types </a><span class="lnr lnr-arrow-right"></span><a href="standard-post.html">Standard Post </a></p>
-							</div>
-						</div>
-						<div class="col-lg-12">
-							<div class="news-tracker-wrap">
-								<h6><span>Breaking News:</span>   <a href="#">Astronomy Binoculars A Great Alternative</a></h6>
+								<h1 class="text-white">{{$post1->category->name}}</h1>
+								<p class="text-white link-nav"><a href="/">Trang chủ </a>  <span class="lnr lnr-arrow-right"></span>{{$post1->category->name}}</p>
 							</div>
 						</div>
 					</div>
@@ -33,45 +28,60 @@
 							<div class="single-post-wrap">
 								<div class="content-wrap">
 									<ul class="tags">
-										<li><a href="#">Food Habit</a></li>
+										{{--  <li><a href="/{{$post1->category->slug}}">Giới thiệu</a></li>  --}}
 									</ul>
-									<a href="#">
-										<h3>A Discount Toner Cartridge Is Better Than Ever.</h3>
+									<a href="/{{$post1->category->slug}}/{{$post1->slug}}">
+										<h3>{{ $post1->title }}</h3>
 									</a>
 									<ul class="meta pb-20">
-										<li><a href="#"><span class="lnr lnr-user"></span>Mark wiens</a></li>
-										<li><a href="#"><span class="lnr lnr-calendar-full"></span>03 April, 2018</a></li>
-
+										<li><span class="lnr lnr-user"></span>{{$post1->author->name}}</li>
+										<li><span class="lnr lnr-calendar-full"></span>{{$post1->created_at->format('d-m-Y')}}</li>
 									</ul>
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-									</p>
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus.
-									</p>
-								<blockquote>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</blockquote>
-								
-								<div class="navigation-wrap justify-content-between d-flex">
-									<a class="prev" href="#"><span class="lnr lnr-arrow-left"></span>Prev Post</a>
-									<a class="next" href="#">Next Post<span class="lnr lnr-arrow-right"></span></a>
+
+									{!! $post1->body !!}									
+
 								</div>
-								
+								<div class="navigation-wrap justify-content-between d-flex">
+									<a class="prev" href="#"><span class="lnr lnr-arrow-left"></span>Trước</a>
+									<a class="next" href="#">Sau<span class="lnr lnr-arrow-right"></span></a>
+								</div>
+
 							</div>
-						</div>
+
 						<!-- End single-post Area -->
 					</div>
                     <div class="col-lg-4">
                             <div class="sidebars-area">
-                                @include('theme::partials.editor-pick-post')
-                                @include('theme::partials.most-popular')
-                                @include('theme::partials.social-networks')
+					
+								<div class="single-sidebar-widget editors-pick-widget">
+										<h6 class="title">Các tin khác</h6>
+										<div class="editors-pick-post">
+											<div class="post-lists">
+												@foreach($posts as $post)	
+													<div class="single-post d-flex flex-row">
+														<div class="thumb">
+															
+															<img class="img-fluid" src="@if(!isset($post->image)){{ 'vnis/img/no-img/no-img-small.jpg' }}@else{{ Voyager::image($post->thumbnail('small')) }}@endif" alt="vnist">
+														</div>
+														<div class="detail">
+															<a href="/{{$post->category->slug}}/{{$post->slug}}"><h6> {{$post->title}} </h6></a>
+															<ul class="meta">
+																<li><span class="lnr lnr-calendar-full"></span>{{$post->created_at->format('d-m-Y')}}</li>
+									
+															</ul>
+														</div>
+													</div>
+												@endforeach													
+											</div>
+									</div>
                             </div>
                         </div>
-				</div>
+				    </div>
 			</div>
 		</section>
 		<!-- End latest-post Area -->
 	</div>    
+
 @endsection
 @section('footer')
 	@include('theme::partials.footer')

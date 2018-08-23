@@ -34,10 +34,10 @@
 </div>
 <div class="container main-menu" id="main-menu">
     <div class="row align-items-center justify-content-between">
-        <nav id="nav-menu-container" >
-            {{menu('MainMenu','theme::partials.mainmenu')}} 
+        <nav id="nav-menu-container">
+            {{menu('MainMenu','theme::partials.mainmenu')}}
         </nav><!-- #nav-menu-container -->
-        {{-- <div class="navbar-right">
+        <div class="navbar-right">
             <form class="Search">
                 <input type="text" class="form-control Search-box" name="Search-box" id="Search-box" placeholder="Search">
                 <label for="Search-box" class="Search-box-label">
@@ -47,6 +47,6 @@
                     <span class="lnr lnr-cross"></span>
                 </span>
             </form>
-        </div> --}}
+        </div>
     </div>
 </div>

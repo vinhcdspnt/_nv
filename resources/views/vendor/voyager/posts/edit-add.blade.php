@@ -109,18 +109,24 @@
                                         
                                         
                                     </h3>
-                                    {{-- <div class="panel-actions">
-                                        <a class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
-                                    </div> --}}
+
                                 </div>
                                 <div class="panel-body">
                                         <select class="form-control" name="category_id">
                                                 @foreach(TCG\Voyager\Models\Category::all() as $category)
-                                                    <option value="{{ $category->id }}" @if(isset($vinh_cate_id) && $vinh_cate_id == $category->id) selected="selected"@endif>{{ $category->name }}</option>
+                                                    <option value="{{ $category->id }}" 
+                                                        @if(isset($vinh_cate_id) && $vinh_cate_id == $category->id) 
+                                                            selected="selected"
+                                                        @else
+                                                            @if(isset($dataTypeContent->category_id) && $dataTypeContent->category_id == $category->id) 
+                                                            selected="selected"
+                                                            @endif                                                        
+                                                        @endif>
+                                                        {{ $category->name }}
+                                                    </option>
                                                 @endforeach
                                         </select>                                        
                                 </div>                    
-                    
                     </div>
                     <!-- ### EXCERPT ### -->
                     <div class="panel">

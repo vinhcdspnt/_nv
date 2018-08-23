@@ -15,8 +15,11 @@
 //     return view('welcome');
 // });
 Route::get('/', 'PageController@index')->name('home');
-Route::get('gioi-thieu', 'PageController@about')->name('about');
-Route::get('gioi-thieu/{slug}', 'PageController@showAbout')->name('aboutPost');
+// Route::get('gioi-thieu', 'PageController@about')->name('about');
+// Route::get('gioi-thieu/{slug}', 'PageController@showAbout')->name('aboutPost');
+Route::get('{slug_cate}', 'PageController@singlePost')->name('single-post');
+Route::get('{slug_cate}/{slug_post}', 'PageController@singlePost')->name('single-post');
+
 // Route::get('lien-he', 'PageController@contact')->name('contact');
 // Route::get('dich-vu-an-toan-thong-tin', 'PageController@service')->name('service');
 

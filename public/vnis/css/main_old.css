@@ -92,14 +92,11 @@ $black			: #222;
 }
 
 body {
-  /*color: #777777;*/
-  color: #0c0c0c;
-  /*font-family: 'Open Sans', sans-serif;*/
-  font-family: 'Open Sans', sans-serif;
-  font-size: 15px;
+  color: #777777;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
   font-weight: 300;
   line-height: 1.625em;
-  /*line-height: 1.635em;*/
   position: relative;
 }
 
@@ -108,43 +105,7 @@ ol, ul {
   padding: 0;
   list-style: none;
 }
-/* =================================== */
-/* List style bai viet - Nguyen Vinh
-/* =================================== */
-.tieu-de-noi-dung {
-  margin: 0 0 30px;
-}
-.bold {
-  font-weight: bold;
-}
-.list-bai-viet ul {
-  padding: 0 0 0 40px;
-}
-.list-bai-viet ul li {
-  list-style: square outside none;
-  margin-bottom: 10px;
-}
-.tieu-de-top0 {
-  /*font-size: 25px;*/
-  font-weight: 500;
-}
-.tieu-de-top12 {
-    /*font-size: 18px;*/
-    font-weight: 500;
-    line-height: 1.4em !important;
-}
-.tieu-de-bai-viet {
-    /*font-size: 24px;*/
-    font-weight: 500;
-    line-height: 1.4em !important;
-}
-.vinh {
-    font-weight: 500;
-    line-height: 1.4em !important;
 
-}
-
-/* =================================== */
 select {
   display: block;
 }
@@ -199,7 +160,7 @@ a, a:focus, a:hover {
 
 h1, h2, h3,
 h4, h5, h6 {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Poppins", sans-serif;
   color: #222222;
   line-height: 1.2em !important;
   margin-bottom: 0;
@@ -211,7 +172,7 @@ h4, h5, h6 {
 .h4, .h5, .h6 {
   margin-bottom: 0;
   margin-top: 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 600;
   color: #222222;
 }
@@ -1685,7 +1646,7 @@ body {
 
 .latest-post-area .latest-post-wrap .cat-title {
   font-size: 14px;
-  /*font-weight: 600;*/
+  font-weight: 600;
   background: #04091e;
   color: #fff;
   padding: 10px 25px;
